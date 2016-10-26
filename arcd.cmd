@@ -4,6 +4,7 @@
  set CPATH=%~dp0%.
  set APATH=%~dp0%..
 
+ set RAREXE=rar5x64.exe
  set AEXT=rar
 
 :rep
@@ -32,7 +33,7 @@
  for /f "tokens=1-4 delims=:" %%G in ('time /t') do (set ATIME=%%G:%%H)
 
  mkdir "%APATH%\%ANAME%-1"
- "%CPATH%\rar.exe" a -r -rr -se -m5 -dh -os -ow -y -idp -ilog -x@"%CPATH%\%ANAME%.xcl" "%APATH%\%ANAME%-1\%ANAME%-%ADATE%.%AEXT%" @"%CPATH%\%ANAME%.inc"
+ "%CPATH%\%RAREXE%" a -r -rr -se -m5 -dh -os -ow -y -idp -ilog -x@"%CPATH%\%ANAME%.xcl" "%APATH%\%ANAME%-1\%ANAME%-%ADATE%.%AEXT%" @"%CPATH%\%ANAME%.inc"
 
  shift
  goto rep
